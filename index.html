@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />	
+	<title>Zuga</title>
+	<link rel="stylesheet" type="text/css" href="include/css/main.css">
+	<link rel="stylesheet" type="text/css" href="include/css/icomoon.css">
+	<link rel="stylesheet" type="text/css" href="include/css/animate.css">
+
+	<link rel="icon" href="assets/logo_zuga.svg" />
+</head>
+<body>
+	<section class="change-resolution">
+		<div class="svg-container">
+			<svg version="2" baseProfile="full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 568 320">
+
+					 <rect x="88" y="49.80000305175781" rx="0" ry="0" width="388" height="172" transform=""></rect> <rect x="108" y="62.80000305175781" rx="0" ry="0" width="349" height="145" transform=""></rect> <rect x="240" y="221.8000030517578" rx="0" ry="0" width="91" height="22" transform=""></rect> <path d="M 210,244 H 362"></path>
+			</svg>
+		</div>
+		<p>ZUGA is optimized to work on desktop browsers for now. <br /> Please visit the website on another device (min. width: 1280px)</p>
+	</section>
+
+	<header>
+
+		<svg version="2"
+		     baseProfile="full"
+		     width="80" height="80"
+		     xmlns="http://www.w3.org/2000/svg"
+		     id='logo'>
+
+		     <path d="M 40,11 L 10,11 Q 12,21  22,21 L 40,21" fill="salmon" stroke="black" stroke-width="2" />
+
+		     <path d="M 30,69 L 60,69 Q 58,59  50,59 L 30,59" fill="#4A816C" stroke="black" stroke-width="2" />
+
+		     <polygon points="40,10 55,10 30,70 15,70" fill="black" />
+		</svg>
+
+		<h1 class="logo-title">ZUGA</h1>
+	</header>
+
+	<section class="intro">
+		<div class="intro-container">
+
+			<svg version="2"
+			     baseProfile="full"
+			     viewBox="0 0 80 80"
+			     xmlns="http://www.w3.org/2000/svg"
+			     id='intro'>
+
+			     <path id="chicken" d="M 40,11 L 10,11 Q 12,21  22,21 L 40,21" fill="salmon" stroke="black" stroke-width="2" />
+
+			     <path id="wing" d="M 30,69 L 60,69 Q 58,59  50,59 L 30,59" fill="#4A816C" stroke="black" stroke-width="2" />
+
+			     <polygon points="40,10 55,10 30,70 15,70" fill="black" />
+			</svg>
+
+			<hr />
+			<h1 class="animated">ZUGA</h1>
+
+
+			<div class="choose-size">
+				<p>Welcome to ZUGA</p>
+				<button>ENTER</button>
+			</div>
+
+			<form class="skip-intro-form">
+				<label for="skip-intro">Skip the intro next time&nbsp;?</label>
+				<input type="checkbox" name="skip-intro" value="skip" checked>
+			</form>
+
+			<p class="session-number">CodePhenix Lab - session 0.2.11</p>
+
+		</div>
+	</section>
+
+	<section class="choose-canvas">
+
+		<div class="choose-container">
+			<h3>Create New Image</h3>
+			
+			<h4>Name (optional):</h4>
+
+			<form class="define-name">
+				<input type="text" value="">
+			</form>
+
+			<h4>Define canvas width/height</h4>
+
+			<form class="predefined-canvas">
+				<label for="format-choice">pre-defined canvas:</label>
+				<select name="format-choice">
+				  	<option value="mobile">320 * 568</option>
+				  	<option value="window-one" selected>800 * 600</option> 
+				  	<option value="window-second">1024 * 768</option>
+				  	<option value="large-screen">1600 * 900</option>
+				</select>
+			</form>
+
+			<form class="define-carac">
+				<label>Width (px):</label>
+				<input type="number" name="" min="0" value="800">
+
+				<label>Height (px):</label>
+				<input type="number" name="" min="0" value="600">
+			</form>
+
+			<h4>Define orientation:</h4>
+
+			<form class="define-canvas">
+				<label>Portrait</label>
+				<input type="radio" name="orientation" value="portrait">
+
+				<label>Landscape</label>
+				<input type="radio" name="orientation" value="landscape">
+			</form>
+
+			<button class="validate-canvas">Draw</button>
+		</div>
+	</section>
+
+	<section class="help-window">
+		<p class="tips">Welcome on ZUGA. <br /><br /> To draw a shape, choose a shape from the left menu "Shapes".</p>
+	</section>
+
+	<section class="drawing-contener">
+		<div class="space-to-draw">
+			<div class="canvas-container">
+				<svg version="2"
+				     baseProfile="full"
+				     width="0" height="0"
+				     xmlns="http://www.w3.org/2000/svg">
+
+				     <g>
+				     	<title></title>
+				     	
+				     	<path d='' stroke='black' stroke-width='1'/>
+
+				     	<rect class='resize-button' width='5' height='5' fill='red' fill-opacity='0.6' stroke='red' stroke-width='1' style='cursor: pointer; display: none;'/>
+				     	
+				     	<defs>
+				     	</defs>	
+					 </g>
+
+				</svg>
+			</div>				
+		</div>
+		<div class="points-history">		
+		</div>
+	</section>
+
+	<div class="x-coordonate">
+		<div class="x-point">0</div>
+	</div>
+
+	<div class="y-coordonate">
+		<div class="y-point">0</div>
+	</div>
+
+	<section class="tool">
+		<h2 class="drawing-title">Drawing List</h2>
+
+		<div class="drawing-history">
+			<div class="shape-container">
+				
+			</div>
+
+			<div class="shape-tool">
+				<span class="icon-trash-o"></span>
+				<span class="icon-paragraph"></span>
+				<span class="icon-info-circle"></span>
+				<span class="icon-arrows-alt" style="color: grey"></span>
+				<span class="icon-chain" style="color: grey"></span>
+				<span class="icon-list-ol" style="color: grey"></span>
+			</div>
+		</div>
+		
+		<h2 class="transform-title">Transform</h2>
+
+		<div class="transform-menu">
+			<div class="scale-tool-container">
+				<h3><span class="icon-expand2"></span> Scale (%):</h3>
+
+				<form>
+					<label for="scale-tool">x:</label>
+					<input id="scale-tool" type="number" value="100" min="0" max="800">
+					
+					<label for="scale-tool">y:</label>
+					<input id="scale-tool" type="number" value="100" min="0" max="800">
+				</form>
+
+			</div>
+
+			<div class="translate-tool-container">
+
+				<h3><span class="icon-arrows"></span> Translate:</h3>
+
+				<form>
+					<label for="translate-tool">x:</label>
+					<input id="translate-tool" type="number" value="0" min="-800" max="800">
+					
+					<label for="translate-tool">y:</label>
+					<input id="translate-tool" type="number" value="0" min="-800" max="800">
+				</form>
+
+			</div>
+
+			<div class="rotate-tool-container">
+
+				<h3><span class="icon-rotate-right"></span> Rotate: </h3>
+
+				<form>
+					<input id="rotate-tool" type="number" value="0" min="-360" max="360">
+				</form>
+
+				<p class="flip">Flip: <span>90°</span> / <span>180°</span></p>
+
+			</div>
+		</div>
+
+		<h2 class="fill-title">Fill</h2>
+
+		<div class="fill-menu">
+			
+			<div class="fill-color">
+				<h3>Fill Color:</h3>
+
+				<form>
+					<input type="color">
+				</form>
+			</div>
+
+<!-- 			<div class="fill-rull">
+				<h3>Fill Rule:</h3>
+
+				<form>
+					<label for="evenodd-fill">evenodd</label>
+					<input id="evenodd-fill" type="radio" name="rull" data-svg="evenodd">
+					
+					<label for="nonzero-fill">nonzero</label>
+					<input id="nonzero-fill" type="radio" name="rull" data-svg="nonzero">
+				</form>
+			</div> -->
+
+			<div class="fill-opacity">
+				<h3>Fill Opacity:</h3>
+
+				<form>
+					<input type="range" name="choice" min="0" max="1" step="0.1" value="1">
+				</form>			
+			</div>	
+
+		</div>
+
+		<h2 class="stroke-title">Stroke</h2>
+
+		<div class="stroke-menu">
+			<div class="stroke-color">
+				<h3>Color:</h3>
+
+				<input type="color" name="color">
+			</div>
+
+			<div class="stroke-width">
+				<h3>Width:</h3>
+
+				<input type="number" name="width" min="0">
+			</div>
+
+			<div class="stroke-linecap">
+				<h3>Linecap:</h3>
+
+				<form>
+					<label for="butt-stroke">butt</label>
+					<input id="butt-stroke" type="radio" name="linecap" data-svg="butt">
+					
+					<label for="round-stroke">round</label>
+					<input id="round-stroke" type="radio" name="linecap" data-svg="round">
+
+					<label for="square-stroke">square</label>
+					<input id="square-stroke" type="radio" name="linecap" data-svg="square">
+				</form>
+			</div>
+
+			<div class="stroke-linejoin">
+				<h3>Linejoin:</h3>
+
+				<form>
+					<label for="bevel-stroke">bevel</label>
+					<input id="bevel-stroke" type="radio" name="linejoin" data-svg="bevel">
+
+					<label for="miter-stroke">miter</label>
+					<input id="miter-stroke" type="radio" name="linejoin" data-svg="miter">
+					
+					<label for="round-linejoin">round</label>
+					<input id="round-linejoin" type="radio" name="linejoin" data-svg="round">
+				</form>
+			</div>
+
+			<div class="stroke-miterlimit">
+
+				<h3>Miterlimit:</h3>
+
+				<form>
+					<input id="miterlimit" type="number" min="1" name="linejoin" value="1" step='1'>
+				</form>
+
+			</div>
+
+			<div class="stroke-dasharray">
+				<h3>Dasharray:</h3>
+
+				<input type="number" name="dasharray" min="0">
+			</div>
+
+			<div class="stroke-dashoffset">
+				<h3>Dashoffset:</h3>
+
+				<input type="number" name="dashoffset">
+			</div>
+
+			<div class="stroke-opacity">
+				<h3>Opacity:</h3>
+
+				<form class="choice">
+					<input type="range" name="choice" min="0" max="1" value="1" step="0.1">
+				</form>
+			</div>
+		</div>
+
+		<div class="rounded-rect-container animated" style="display: none">
+			<h2 class="rounded-rect-title">Rounded Corner</h2>
+
+			<div class="rounded-rect-menu">
+				<form>
+					<label for="rect-rx">X Radius:</label>
+					<input id="rect-rx" type="number" min="0" value="0">
+
+					<label for="rect-ry">Y Radius:</label>
+					<input id="rect-ry" type="number" min="0" value="0">
+				</form>			
+			</div>
+		</div>
+
+		<div class="ellipse-radius-container" style="display: none">			
+			<h2 class="ellipse-radius-title">Ellipse Radius</h2>
+
+			<div class="ellipse-radius-menu">
+				<form>
+					<label for="ellipse-rx">X Radius:</label>
+					<input id="ellipse-rx" type="number" min="0" value="0">
+
+					<label for="ellipse-ry">Y Radius:</label>
+					<input id="ellipse-ry" type="number" min="0" value="0">
+				</form>			
+			</div>
+		</div>
+	</section>
+
+	<section class="module-container">
+		<h2 class="shape-title">Shapes</h2>
+		
+		<div class="shapes-module">
+			<svg version="2"
+			     baseProfile="full"
+			     viewBox="0 0 60 40"
+			     xmlns="http://www.w3.org/2000/svg"
+			     id='choose-rect'
+			     class="choose-geometry">
+
+			     <rect  class='rect-shape'
+			     		x='8' y='5'
+			     		width='45' height='30'/>
+			</svg>
+
+			<svg version="2"
+			     baseProfile="full"
+			     viewBox="0 0 60 40"
+			     xmlns="http://www.w3.org/2000/svg"
+			     id='choose-circle'
+			     class="choose-geometry">
+
+			     <ellipse  class='circle-shape'
+			     		   cx='31' cy='20'
+			     		   rx='15' ry='15'	/>
+			</svg>
+
+			<svg version="2"
+			     baseProfile="full"
+			     viewBox="0 0 60 40"
+			     xmlns="http://www.w3.org/2000/svg"
+			     id='choose-path'
+			     class="choose-geometry">
+
+			     <path class='path-shape'
+			           d="M 6,12
+	      			   	  A 12,8 0,0,1 32,12
+	      				  A 12,8 0,0,1 57,12
+	       				  Q 57,24 31,36
+	       				  Q 6,24 6,12 Z" />
+			</svg>
+
+<!-- 			<svg version="2"
+			     baseProfile="full"
+			     viewBox="0 0 60 40"
+			     xmlns="http://www.w3.org/2000/svg"
+			     id='choose-polygon'
+			     class="choose-geometry">
+
+			     <polygon class='polygon-shape'
+			           points="30,5 8,20 30,35 50,20" />
+			</svg>	 -->					
+		</div>	
+		
+		<h2 class="tool-title">Tools</h2>
+
+		<div class="tool-module">
+			<span class="icon-pencil"></span>
+			<span class="icon-eyedropper" style="color: lightgrey"></span>
+			<span class="icon-font" style="color: lightgrey"></span>
+		</div>
+
+		<h2 class="palette-title">Palette</h2>
+		
+		<div class="palette-module">
+			
+		</div>
+
+		<h2 class="gradient-title">Gradient</h2>
+		
+		<div class="gradient-palette">
+			
+		</div>
+
+		<h2 class="filter-title">Filter</h2>
+		
+		<div class="filter-module">
+			
+		</div>	
+
+		<h2 class="pattern-title">Pattern</h2>
+		
+		<div class="pattern-module">
+			
+		</div>
+
+<!-- 		<h2 class="animation-title">Animation</h2>
+		
+		<div class="animation-module">
+			
+		</div>	 -->						
+	</section>	
+
+	<section class="aux-menu">
+		<ul class="path-options">
+			<li class="curve-tool">Curve Options
+
+				<span class="icon-chevron-down"></span>
+
+				<ul class="curves-options">
+					<li class="bezier-curve" style="color: lightgrey; text-decoration: line-through;">Bezier Curve</li>
+					<li class="control-points">Validate Control Points</li>
+					<li class="quadriatic-curve">Quadriatic Curve</li>
+					<li class="reflect-quadriatic">Reflect Previous Curve</li>
+				</ul>
+			</li>
+			<li class="h-line">Draw Horizontal Line</li>
+			<li class="v-line">Draw Vertical Line</li>
+			<li class="move-to">New Move To</li>
+			<li class="starting-point">Go To Last M Point</li>
+			<li class="z-path">Close Path</li>
+			<li class="end-path">End Path</li>
+		</ul>
+
+		<ul class="polyline-options">
+			<li class="starting-point">Go To Starting Point</li>
+			<li>End Polyline</li>
+		</ul>
+
+		<ul class="polygon-options">
+			<li>End Polygon</li>
+		</ul>
+
+		<ul class="crayon-options">
+			<li>End Crayon</li>
+		</ul>
+
+		<ul class="general-options">
+			<li class="validate-points">Stop Changing Points</li>
+			<li class="background-tool">Change Background</li>
+			<input type="color" class="background-change">
+			<li class="copy-tool">Copy</li>
+			<li class="paste-tool">Paste</li>
+			<li class='undo-tool'>Undo</li>
+		</ul>
+	</section>
+
+	<section class="gradient-module">
+		<div class="gradient-modal">
+			<p class="module-title">Gradient Module</p>
+			
+			<div class="gradient-type">
+				<div>
+					<p>Linear Gradient</p>
+				</div>
+				<div>
+					<p>Radial Gradient</p>
+				</div>
+			</div>
+
+			<div class="linear-gradient-module">
+				<p>Color Offset</p>
+
+				<div class="gradient-tool">
+					<form>
+						<div class="stop-inputs">
+							<label>Node #1</label>
+							<input type="number" min="0" max="100" value="0">
+							<input type="color">
+						</div>
+
+						<div class="stop-inputs">					
+							<label>Node #2</label>
+							<input type="number" min="0" max="100" value="100">
+							<input type="color">		
+						</div>
+					</form>
+				</div>
+
+				<label for="orientation-check">Change orientation ?</label>
+				<input id="orientation-check" type="checkbox">
+
+				<div class="gradient-orientation">
+					<p>Set Orientation</p>
+
+					<form>
+						<label for="x1-angle">x1</label>
+						<input id="x1-angle" type="number" min="0" max="100" value="0">
+
+						<label for="y1-angle">y1</label>
+						<input id="y1-angle" type="number" min="0" max="100" value="0">
+
+						<br />
+
+						<label for="x2-angle">x2</label>
+						<input id="x2-angle" type="number" min="0" max="100" value="100">
+
+						<label for="y2-angle">y2</label>
+						<input id="y2-angle" type="number" min="0" max="100" value="100">
+					</form>
+
+				</div>
+				
+			</div>
+
+			<div class="radial-gradient-module">
+				<p>Color Offset</p>
+
+				<div class="radial-tool">
+					<form>
+						<div class="stop-inputs">
+							<label>Node #1</label>
+							<input type="number" min="0" max="100" value="0">
+							<input type="color">
+						</div>
+
+						<div class="stop-inputs">					
+							<label>Node #2</label>
+							<input type="number" min="0" max="100" value="100">
+							<input type="color">		
+						</div>
+					</form>
+				</div>
+
+				<label for="position-check">Change position ?</label>
+				<input id="position-check" type="checkbox">
+
+				<div class="radial-position">
+					<p>Set Position</p>
+
+					<form>
+						<label for="cx-angle">cx</label>
+						<input id="cx-angle" type="number" min="0" max="100" value="0">
+
+						<label for="cy-angle">cy</label>
+						<input id="cy-angle" type="number" min="0" max="100" value="0">
+
+						<br />
+
+						<label for="r-angle">r</label>
+						<input id="r-angle" type="number" min="0" max="100" value="100">
+
+						<br />
+
+						<label for="fx-angle">fx</label>
+						<input id="fx-angle" type="number" min="0" max="100" value="100">
+
+						<label for="fy-angle">fy</label>
+						<input id="fy-angle" type="number" min="0" max="100" value="100">
+					</form>
+
+				</div>
+
+				<form class="choose-spread-method">
+					<p>Spread Method:</p>
+
+					<label for="pad-spread">pad</label>
+					<input id="pad-spread" type="radio" name="spreadMethod">
+
+					<label for="reflect-spread">reflect</label>
+					<input id="reflect-spread" type="radio" name="spreadMethod">
+
+					<label for="repeat-spread">repeat</label>
+					<input id="repeat-spread" type="radio" name="spreadMethod">
+				</form>
+
+			</div>
+
+			<div class="gradient-survey">
+				<svg version="2"
+				     baseProfile="full"
+				     width="400" height="150"
+				     xmlns="http://www.w3.org/2000/svg">
+
+				     <defs>
+				     	<linearGradient id="gradient-def">
+				     		<stop offset="0%" stop-color="#D75151"/>
+				     		<stop offset="100%" stop-color="#1C97AC"/>
+				     	</linearGradient>
+
+				     	<radialGradient id="radial-def">
+				     		<stop offset="0%" stop-color="#D75151"/>
+				     		<stop offset="100%" stop-color="#1C97AC"/>				     		
+				     	</radialGradient>
+				     </defs>
+
+				     <rect width="400" height="150" fill="url(#gradient-def)" stroke="black" stroke-width="1"/>
+				</svg>
+			</div>
+
+			<div>
+				<span class="icon-plus2"></span>
+			</div>
+
+			<button>Save Gradient</button>
+		</div>	
+	</section>
+
+	<section class="options">
+		<div style="display: flex; flex-direction: row; justify-content: space-between;">
+			<h4>Options</h4>
+			<span class="icon-gears"></span>
+		</div>
+	</section>
+
+	<section class="options-module">
+		<div class="options-modal">
+			<h3>Options</h3>
+
+			<div class="cadrillage">
+				<p>Show Rulers:</p>
+				<form>
+					<label>Yes</label>
+					<input type="radio" name="cadrillage" checked>
+
+					<label>No</label>
+					<input type="radio" name="cadrillage">
+				</form>
+			</div>
+			<div class="show-tooltip">
+				<p>Show Help Window</p>
+				<form>
+					<label>Yes</label>
+					<input type="radio" name="tooltip" checked>
+
+					<label>No</label>
+					<input type="radio" name="tooltip">
+				</form>				
+			</div>
+
+			<button>Validate Options</button>
+		</div>
+	</section>
+
+	<section class="export-svg">
+		<div style="display: flex; flex-direction: row; justify-content: space-between;">
+			<h4>Export SVG</h4>
+			<span class="icon-save"></span>
+		</div>
+	</section>
+
+	<section class="export-svg-info">
+		<div class="export-info-container">
+			<p></p>
+			<button>Continue Drawing</button>
+		</div>
+	</section>
+
+	<script src="include/js/main.js"></script>
+	<script src="include/js/shape.js"></script>
+	<script src="include/js/tools.js"></script>
+	<script src="include/js/attributes.js"></script>
+	<script src="include/js/tooltip.js"></script>
+
+</body>
+</html>

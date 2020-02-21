@@ -1,0 +1,936 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat';
+}
+
+@media only screen and (max-width: 1279px) {
+	.change-resolution {
+		display: flex!important;
+	}
+}
+section.change-resolution {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 111;
+	background-color: #5C7271;
+	color: white;
+	text-align: center;
+}
+
+.svg-container {
+	width: 50vw;
+	height: 50vh;
+}
+
+.svg-container rect,
+.svg-container path {
+	stroke: white;
+	fill: transparent;
+}
+
+
+header {
+	position: fixed;
+	z-index: 66;
+	top: 0;
+	left: 1.5%;
+	background-color: transparent;
+	font-family: "Bernier Regular";
+	cursor: pointer;
+}
+
+h1.logo-title {
+	border-top: solid white 1px;
+	padding-top: 5px;
+	color: white;
+	font-size: 1em;
+	font-weight: 500;
+	text-align: center;
+}
+
+section.intro {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	padding-bottom: 25vh;
+	z-index: 101;
+	background-color: #5C7271;
+}
+
+.intro-container {
+	width: 200px;
+	height: 150px;
+	text-align: center;
+	color: white;
+}
+
+.intro-container svg {
+	margin-left: 20px;
+}
+
+.intro-container h1 {
+	margin-top: 0.4em;
+	opacity: 0;
+	animation: fadeInUp 0.8s ease-out forwards;
+	animation-delay: 0.4s;
+	font-family: 'Montserrat';
+	font-weight: 500;
+	font-size: 2em;
+}
+
+@keyframes underline_intro {
+	to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);		
+	}
+}
+
+.intro-container hr {
+	border: none;
+    position: absolute;
+    width: 200px;
+    height: 3px;
+    background: white;
+    -webkit-transform: scale3d(0, 1, 1);
+    transform: scale3d(0, 1, 1);
+    animation: underline_intro 1s ease-in-out forwards;
+}
+
+.choose-size {
+	margin-top: 2em;
+	opacity: 0;
+	animation: show_size 0.2s linear forwards;
+	animation-delay: 1.4s;
+}
+
+@keyframes show_size {
+	to {
+		opacity: 1;
+	}
+}
+
+.skip-intro-form {
+	opacity: 0;
+	margin-top: 2rem;
+	animation: show_size 0.2s linear forwards;
+	animation-delay: 1.5s;
+}
+
+.session-number {
+	position: absolute;
+	bottom: 0.6em;
+	right: 1em;
+}
+
+section.choose-canvas {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 99;
+	width: 100vw;
+	height: 100vh;
+	color: white;
+}
+
+.choose-container {
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+	padding: 2rem;
+	background-color: #5C7271;
+	border-radius: 0.4rem;
+}
+
+.choose-container h3 {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.choose-container form {
+	padding: 1rem 1rem;
+}
+
+.choose-canvas input[type=number] {
+	width: 4.5rem;
+}
+
+.validate-canvas {
+	width: 5rem;
+}
+
+.line-shape,
+.rect-shape,
+.circle-shape,
+.polyline-shape,
+.polygon-shape,
+.path-shape {
+	stroke: salmon;
+	stroke-width : 2;
+	fill: transparent;
+}
+
+section.drawing-contener {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	left:  0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #364d4c;
+}
+
+.space-to-draw {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50vw;
+	height: 60vh;
+	overflow: scroll;
+	background-color: transparent;
+	padding: 5rem 5rem;
+}
+
+.canvas-container {
+	width: 100%;
+	height: 100%;
+}
+
+.space-to-draw svg {
+	background-color: white;
+}
+
+.coordonates {
+	position: absolute;
+	padding: 5px 5px;
+	background-color: white;
+	font-size: 0.8em;
+}
+
+.line-example,
+.rect-example,
+.circle-example,
+.polyline-example,
+.polygon-example,
+.path-example {
+	stroke: black;
+	stroke-width: 2;
+	fill: white;
+	stroke-dasharray: 0;
+}
+
+.points-history {
+	display: none;
+	width: 50vw;
+	height: 1.2rem;
+	background-color: white;
+	font-size: 0.85rem;
+	overflow-y: scroll;
+}
+
+section.drawing-history {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	left: 8em;
+	top: 15%;
+	width: 5em;
+	height: 70%;
+	text-align: center;
+	background-color: white;
+}
+
+.drawing-history p {
+	margin-right: 0.3em;
+}
+
+.history-title {
+	width: 100%;
+	border: solid black 1px;
+}
+
+section.history-tool {
+	display: none;
+	position: absolute;
+	text-align: center;
+}
+
+.delete-shape,
+.change-points,
+.list-points,
+.group-shape {
+	background-color: rgba(255, 255, 255, 0.8);
+	font-size: 1.1em;
+}
+
+.delete-shape:hover,
+.change-points:hover,
+.list-points:hover,
+.group-shape:hover {
+	background-color: rgba(255,255,255,1);
+}
+
+section.shape-tools {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 20%;
+	right: 5%;
+	width: 10em;
+}
+
+div.tools,
+div.advanced-tools,
+div.color-stocks,
+div.texts,
+section.options,
+section.export-svg {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 10em;
+	background-color: #4A816C;
+	border-radius: 5px;
+	padding: 2px 10px;
+	color: white;
+	transition: linear 0.3s;
+}
+
+.tools,
+.advanced-tools,
+.color-stocks {
+	margin-bottom: 0.6em;
+}
+
+.tools-title {
+	display: flex; 
+	flex-direction: row; 
+	justify-content: space-between;
+}
+
+section.options,
+section.export-svg {
+	position: absolute;
+	bottom: 5%;
+	left: calc(53%);
+	cursor: pointer;
+}
+
+section.export-svg {
+	bottom: 5%;
+	left: calc(53% + 12em);
+	cursor: pointer;
+}
+
+.icon-chevron-circle-down {
+	cursor: pointer;
+}
+
+form.fill-tool-container,
+button.resize,
+button.move,
+.rotate,
+.gradient,
+.filter,
+.pattern {
+	display: none;
+	margin-top: 0.6em;
+}
+
+.rotate {
+	justify-content: space-between;
+}
+
+.rotate button {
+	width: 60%;
+}
+
+.rotate input {
+	width: 40%;
+	height: 1em;
+}
+
+table.stocks {
+	display: none;
+	background-color: white;
+	text-align: center;
+}
+
+.stocks td {
+	height: 1em;
+	width: 2.5em;
+	border: solid 1px black;
+}
+
+section.aux-menu {
+	display: none;
+	position: absolute;
+	border: 1px solid #5C7271;
+	border-bottom: none;
+	color: white;
+	font-size: 0.9em;
+	transform: scale(0);
+	transform-origin: 0% 0%;
+	transition: transform linear 0.2s;
+}
+
+.path-options,
+.polyline-options,
+.polygon-options,
+.rect-options,
+.crayon-options,
+.ellipse-options,
+.control-points,
+.validate-arc,
+.validate-points,
+.reflect-quadriatic {
+	display: none;
+}
+
+.aux-menu li {
+	background-color: #364d4c;
+	list-style: none;
+	padding: 5px 5px; 
+	cursor: pointer;
+	border-bottom: 1px solid #5C7271;
+}
+
+.aux-menu li:hover {
+	background-color: #5C7271;
+}
+
+.paste-tool {
+	display: none;
+}
+
+.attributes-options,
+.curves-options {
+	height: 0;
+	overflow: hidden;
+	transition: linear 0.2s;
+}
+
+.attributes-options li,
+.curves-options li {
+	background-color: #5c7271;
+	font-size: 0.9em;
+}
+
+.attributes-options li:hover,
+.curves-options li:hover {
+	background-color: #364d4c;
+}
+
+circle.b-temp {
+	cursor: pointer;
+}
+
+section.path-arc-window,
+section.ellipse-radius-window,
+section.rect-rounded-corner {
+	display: none;
+	position: absolute;
+	bottom: 50px;
+	left: 32%;
+	color: white;
+}
+
+.path-arc-window p,
+.ellipse-radius-window p,
+.rect-rounded-corner p {
+	margin-bottom: 10px;
+	border-bottom: 1px solid white;
+}
+
+.path-arc-window input,
+.ellipse-radius-window input,
+.rect-rounded-corner input {
+	width: 60px;
+}
+
+.path-arc-window label,
+.ellipse-radius-window label,
+.rect-rounded-corner label {
+	font-size: 0.8em;
+}
+
+.fill-menu li,
+.stroke-menu li {
+	list-style: none;
+	padding: 5px 5px; 
+	cursor: pointer;
+	font-size: 0.9em;
+	border-bottom: 1px solid #5C7271;
+}
+
+.fill-menu li:hover,
+.stroke-menu li:hover {
+	background-color: #5c7271;
+}
+
+section.attributes-window {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	color: white;
+}
+
+.attributes-modal {
+	background-color: #5C7271;
+	padding: 10px;
+}
+
+.attributes-modal div {
+	display: none;
+}
+
+.attributes-window p {
+	text-align: left;
+	border-bottom: solid 1px white;
+	margin-bottom: 5px;
+}
+
+section.gradient-module {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: transparent;
+	color: white;
+}
+
+.module-title {
+	text-align: center;
+	font-size: 1.6em;
+	font-weight: 700;
+	text-decoration: underline;
+	border-bottom: none!important;
+}
+
+div.gradient-modal {
+	text-align: center;
+	width: 600px;
+	height: 450px;
+	padding: 10px;
+	background-color: #364d4c;
+}
+
+.gradient-type {
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+	height: 80%;
+}
+
+.gradient-type div {
+	width: 45%;
+	border: solid 1px lightgrey;
+}
+
+/*.gradient-modal p {
+	text-align: left;
+	border-bottom: solid 1px white;
+	margin-bottom: 5px;
+}*/
+
+.icon-plus2 {
+	font-size: 24px;
+	border: 1px solid white;
+	margin-top: -30px;
+	margin-right: 10px;
+}
+
+.icon-plus2:hover {
+	border: lightgrey 1px solid;
+	cursor: pointer;
+}
+
+.icon-add-panel {
+	position: absolute;
+	top: 370px;
+	left: 60%;
+}
+
+.gradient-orientation p {
+	font-size: 16px;
+}
+
+.gradient-orientation,
+.linear-gradient-module,
+.radial-gradient-module,
+.gradient-survey {
+	display: none;
+	margin: 10px;
+}
+
+section.help-window {
+	position: absolute;
+	text-align: center;
+	color: white;
+	top: 2%;
+	z-index: 88;
+	width: 40em;
+	padding: 1em;
+	font-size: 0.85rem;
+	font-weight: 500;
+	border-top: solid 1px white;
+	border-bottom: solid 1px white;
+	transform: scaleX(0);
+}
+
+@keyframes open_presentation {
+	to {
+		transform: scaleX(1);
+	}
+}
+
+@keyframes close_presentation {
+	to {
+		transform: scaleX(0);
+	}
+}
+
+.tips {
+	filter: opacity(0);
+	transition: linear 0.1s filter;
+}
+
+section.tool {
+	font-family: 'Montserrat';
+	position: fixed;
+	right: 0;
+	top: 8vh;
+	width: 22vw;
+	background-color: #4A816C;
+}
+
+.tool h2 {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 1.5em;
+	font-weight: 400;
+	font-size: 1.1em;
+	color: grey;
+	padding: 0.4em;
+}
+
+.tool h3 {
+	color: grey;
+}
+
+.shape-container {
+	display: flex;
+	width: 100%;
+	text-align: center;
+	overflow-x: scroll;
+}
+
+.shape-tool {
+	text-align: center;
+}
+
+.shape-tool span {
+	cursor: pointer;
+	padding: 0.4em;
+	margin-right: 1em;
+}
+
+.shape-tool span:hover {
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+.shape-container,
+.transform-menu,
+.fill-menu,
+.stroke-menu,
+.ellipse-radius-menu,
+.rounded-rect-menu,
+.shape-tool {
+	/*height: 0.1em;*/
+	background-color: #777;
+	color: white;
+}
+
+.transform-menu,
+.fill-menu,
+.stroke-menu,
+.shape-tool {
+	overflow: hidden;
+}
+
+.x-coordonate,
+.y-coordonate {
+	display: none;
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	width: 2.2em;
+	height: 1em;
+	background-color: white;
+	clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+}
+
+.y-coordonate {
+	transform: rotate(90deg);
+	transform-origin: 0% 0%;
+}
+
+.x-point,
+.y-point {
+	padding: 5px;
+	font-size: 0.8em;
+	line-height: 0.6em;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+}
+
+.draw-survey {
+	cursor: pointer;
+	width: 80px;
+}
+
+.scale-tool-container,
+.translate-tool-container,
+.rotate-tool-container,
+.fill-color,
+.fill-rull,
+.fill-opacity,
+.stroke-color,
+.stroke-width,
+.stroke-linecap,
+.stroke-linejoin,
+.stroke-miterlimit,
+.stroke-dasharray,
+.stroke-dashoffset,
+.stroke-opacity {
+	display: flex;
+	padding: 0 10px;
+	height: 2em;
+	align-items: center;
+}
+
+.fill-color input,
+.stroke-color input {
+	border: 0;
+}
+
+.tool label {
+	font-size: 0.8rem;
+}
+
+.scale-tool-container input,
+.translate-tool-container input,
+.rotate-tool-container input,
+.stroke-width input,
+.stroke-dasharray input,
+.stroke-dashoffset input,
+.stroke-miterlimit input,
+.ellipse-radius-menu input,
+.rounded-rect-menu input {
+	width: 4em;
+	font-size: 0.8rem;
+	margin-right: 1em;
+}
+
+.stroke-miterlimit {
+	color: lightgrey;
+}
+
+.transform-menu h3,
+.fill-menu h3,
+.stroke-menu h3,
+.ellipse-radius-menu label,
+.rounded-rect-menu label {
+	font-size: 0.8em;
+	margin-right: 1em;
+}
+
+section.module-container {
+	position: fixed;
+	width: 10rem;
+	left: 0;
+	top: 35vh;
+	background-color: #4A816C;
+	font-size: 0.95rem;	
+}
+
+.module-container h2 {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 1.5em;
+	font-weight: 400;
+	font-size: 1.1em;
+	color: white;
+	padding: 0.4em;
+}
+
+.shapes-module {
+	display: flex;
+	flex-direction: row;
+	background-color: #777;
+	padding: 0.2rem 0.2rem;
+}
+
+.shapes-module svg {
+	cursor: pointer;
+	border: solid 1px transparent;
+}
+
+.shapes-module svg:hover {
+	border: 1px solid lightgrey;
+}
+
+.crayon-title {
+	cursor: pointer;
+}
+
+.filter-title,
+.pattern-title,
+.animation-title,
+.gradient-title,
+.palette-title {
+	color: grey!important;
+}
+
+/*class for select shape in drawing list*/
+
+.shape-selected {
+	color: salmon;
+}
+
+/*Tool Module*/
+
+.tool-module {
+	text-align: center;
+	background-color: grey;
+}
+
+.tool-module span {
+	color: salmon;
+	font-size: 1.2rem;
+	padding: 0 0.4rem;
+	cursor: pointer;
+	border: solid 1px transparent;
+}
+
+.tool-module span:hover {
+	border: solid 1px lightgrey; 
+}
+
+/*Input for changing shape name*/
+
+.change-shape-name {
+	display: none;
+	width: 80px;
+}
+
+.background-change {
+	display: none;
+}
+
+.flip {
+	margin-left: 0.4rem;
+	font-size: 0.9em;
+	font-weight: 500;
+}
+
+.flip span {
+	border: 1px solid transparent;
+	cursor: pointer;
+}
+
+.flip span:hover {
+	border: 1px solid lightgrey;
+}
+
+section.options-module,
+section.export-svg-info {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 111;
+	width: 100vw;
+	height: 100vh;
+	background-color: transparent;
+}
+
+.options-modal,
+.export-info-container {
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
+	background-color: #5C7271;
+	color: white;
+	border-radius: 0.4rem;
+}
+
+.options-modal h3 {
+	text-align: center;
+	margin-top: -1rem;
+	margin-bottom: 1rem;
+}
+
+.options-modal p {
+	font-weight: 500;
+}
+
+.export-info-container p {
+	width: 50vw;
+	padding: 1rem;
+	background-color: white;
+	color: black;
+}
+
+.export-info-container button {
+	margin-top: 2rem;
+	width: 12rem;
+	cursor: pointer;
+}
+
+/*Infobulle*/
+
+.popover {
+	position: absolute;
+	background-color: rgba(0,0,0,0.6);
+	color: white;
+	font-size: 0.8rem;
+	padding: 0.3rem;
+}
+
+/*Export*/
