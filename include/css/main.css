@@ -136,6 +136,10 @@ section.intro {
 	right: 1em;
 }
 
+.session-number a {
+	color: inherit;
+}
+
 section.choose-canvas {
 	display: none;
 	justify-content: center;
